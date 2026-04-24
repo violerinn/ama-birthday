@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, DD Ama 🦒💚</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ─── CSS Variables ─── */
+        
+         :root {
+            --sage: #8aab85;
+            --mint: #b8d8b4;
+            --soft-olive: #9db89a;
+            --pale-mint: #d6edd3;
+            --cream: #faf7f0;
+            --warm-white: #fdfcf8;
+            --dusty-green: #6e9e6a;
+            --deep-green: #4a7547;
+            --soft-brown: #c4a882;
+            --giraffe-yellow: #f5d580;
+            --giraffe-spot: #c9883a;
+            --text-dark: #3a4a38;
+            --text-mid: #5a7058;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            cursor: default;
+        }
+        /* ─── FLOATING ELEMENTS ─── */
+        
+        .floaties {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .floaty {
+            position: absolute;
+            font-size: 1.4rem;
+            animation: floatUp linear infinite;
+            opacity: 0.55;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(110vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.55;
+            }
+            90% {
+                opacity: 0.55;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        /* ─── PAGES ─── */
+        
+        .page {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            z-index: 10;
+        }
+        
+        .page.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.96);
+        }
+        /* ─── PAGE 1: ENVELOPE ─── */
+        
+        #page-envelope {
+            background: linear-gradient(135deg, var(--pale-mint) 0%, var(--cream) 50%, #e8f0e6 100%);
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        #page-envelope::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 20% 20%, rgba(138, 171, 133, 0.12) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(184, 216, 180, 0.15) 0%, transparent 50%);
+        }
+        
+        .envelope-wrap {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        
+        .pre-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1.35rem;
+            color: var(--text-mid);
+            letter-spacing: 0.04em;
+            animation: fadeIn 1.2s ease both;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* SVG Envelope */
+        
+        .envelope-svg {
+            width: 280px;
+            height: 200px;
+            filter: drop-shadow(0 12px 32px rgba(74, 117, 71, 0.18));
+            cursor: pointer;
+            animation: fadeIn 1.4s ease 0.3s both, envelopeFloat 4s ease-in-out 2s infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        @keyframes envelopeFloat {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .envelope-svg:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+        
+        .btn-open {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            background: linear-gradient(135deg, var(--sage), var(--dusty-green));
+            border: none;
+            padding: 0.85rem 2.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(74, 117, 71, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeIn 1.4s ease 0.6s both;
+            letter-spacing: 0.06em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-open:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(74, 117, 71, 0.4);
+            background: linear-gradient(135deg, var(--dusty-green), var(--deep-green));
+        }
+        
+        .btn-open:active {
+            transform: translateY(0);
+        }
+        /* Envelope opening animation */
+        
+        .envelope-opening .envelope-flap {
+            animation: openFlap 0.6s ease forwards !important;
+        }
+        
+        @keyframes openFlap {
+            to {
+                transform-origin: top center;
+                transform: rotateX(180deg);
+            }
+        }
+        /* ─── PAGE 2: LETTER ─── */
+        
+        #page-letter {
+            background: linear-gradient(160deg, #e8f4e6 0%, var(--cream) 40%, #f0ede4 100%);
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .letter-inner {
+            max-width: 780px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+            padding: 2rem 0 4rem;
+        }
+        /* Paper card */
+        
+        .paper-card {
+            background: var(--warm-white);
+            border-radius: 20px;
+            padding: 3rem 3.5rem;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(74, 117, 71, 0.1), 0 0 0 1px rgba(138, 171, 133, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .paper-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--mint), var(--sage), var(--soft-olive), var(--mint));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        .paper-card::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 216, 180, 0.2), transparent 70%);
+        }
+        
+        .letter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .letter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-style: italic;
+            color: var(--deep-green);
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .letter-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+            margin: 1rem 0;
+            color: var(--sage);
+            font-size: 1.1rem;
+        }
+        
+        .letter-divider span {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--soft-olive);
+            font-family: 'DM Sans', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .letter-body {
+            font-family: 'Caveat', cursive;
+            font-size: 1.25rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+        
+        .letter-body p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .letter-body .highlight {
+            color: var(--deep-green);
+            font-weight: 700;
+            font-size: 1.35rem;
+        }
+        /* ─── GIRAFFE ILLUSTRATION ─── */
+        
+        .giraffe-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .giraffe-svg {
+            width: 140px;
+            animation: giraffePeek 1s ease 0.5s both, giraffeWave 3s ease-in-out 2s infinite;
+            filter: drop-shadow(0 8px 20px rgba(74, 117, 71, 0.15));
+        }
+        
+        @keyframes giraffePeek {
+            from {
+                transform: translateY(80px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes giraffeWave {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-8px) rotate(1.5deg);
+            }
+            75% {
+                transform: translateY(-4px) rotate(-1deg);
+            }
+        }
+        
+        .giraffe-bubble {
+            background: var(--warm-white);
+            border: 2px solid var(--mint);
+            border-radius: 18px 18px 18px 0;
+            padding: 0.7rem 1.2rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            box-shadow: 0 4px 14px rgba(138, 171, 133, 0.2);
+            animation: fadeIn 1s ease 1.3s both;
+            max-width: 180px;
+            text-align: center;
+            align-self: center;
+            margin-bottom: 30px;
+        }
+        /* ─── POLAROID SECTION ─── */
+        
+        .polaroid-section {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--deep-green);
+            margin-bottom: 0.4rem;
+        }
+        
+        .section-sub {
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            margin-bottom: 2.5rem;
+        }
+        
+        .polaroid-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        
+        .polaroid {
+            background: #fff;
+            padding: 0.9rem 0.9rem 2.5rem;
+            box-shadow: 0 6px 24px rgba(74, 117, 71, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+            cursor: pointer;
+            width: 170px;
+        }
+        
+        .polaroid:nth-child(1) {
+            transform: rotate(-3.5deg);
+        }
+        
+        .polaroid:nth-child(2) {
+            transform: rotate(2deg);
+        }
+        
+        .polaroid:nth-child(3) {
+            transform: rotate(-1.5deg);
+        }
+        
+        .polaroid:nth-child(4) {
+            transform: rotate(3deg);
+        }
+        
+        .polaroid:nth-child(5) {
+            transform: rotate(-2deg);
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.1) translateY(-8px) !important;
+            box-shadow: 0 18px 40px rgba(74, 117, 71, 0.25), 0 4px 16px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+        
+        .polaroid-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            background: var(--pale-mint);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .polaroid-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--pale-mint), var(--mint));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.3rem;
+            font-size: 2rem;
+        }
+        
+        .polaroid-placeholder small {
+            font-family: 'Caveat', cursive;
+            font-size: 0.75rem;
+            color: var(--text-mid);
+        }
+        
+        .polaroid-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            text-align: center;
+            margin-top: 0.8rem;
+            line-height: 1.3;
+        }
+        /* ─── ENDING ─── */
+        
+        .ending-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(138, 171, 133, 0.12), rgba(184, 216, 180, 0.1));
+            border-radius: 24px;
+            border: 1px solid rgba(138, 171, 133, 0.25);
+            width: 100%;
+        }
+        
+        .ending-giraffe {
+            font-size: 3.5rem;
+            animation: bounce 1.5s ease-in-out infinite;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+        
+        .ending-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--deep-green);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        
+        .ending-sub {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: var(--text-mid);
+            margin-bottom: 2rem;
+        }
+        
+        .btn-restart {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--warm-white);
+            background: linear-gradient(135deg, var(--sage), var(--dusty-green));
+            border: none;
+            padding: 0.8rem 2.4rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(74, 117, 71, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-restart:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(74, 117, 71, 0.4);
+        }
+        /* ─── MUSIC BUTTON ─── */
+        
+        .music-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage), var(--dusty-green));
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 16px rgba(74, 117, 71, 0.35);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+        /* ─── PROGRESS DOTS ─── */
+        
+        .progress-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(138, 171, 133, 0.35);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background: var(--sage);
+            transform: scale(1.4);
+        }
+        /* ─── SCROLL HINT ─── */
+        
+        .scroll-hint {
+            text-align: center;
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: var(--text-mid);
+            opacity: 0.7;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollBounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(6px);
+            }
+        }
+        /* ─── CONFETTI BURST ─── */
+        
+        .confetti-piece {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+            animation: confettiFall 3s ease forwards;
+            pointer-events: none;
+            z-index: 200;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        /* ─── RESPONSIVE ─── */
+        
+        @media (max-width: 600px) {
+            .paper-card {
+                padding: 2rem 1.5rem;
+            }
+            .letter-body {
+                font-size: 1.1rem;
+            }
+            .polaroid-grid {
+                gap: 1.2rem;
+            }
+            .polaroid {
+                width: 140px;
+            }
+            .giraffe-svg {
+                width: 110px;
+            }
+        }
+        /* ─── Leaf decoration ─── */
+        
+        .leaf-deco {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating ambient elements -->
+    <div class="floaties" id="floaties"></div>
+
+    <!-- Progress dots -->
+    <div class="progress-dots">
+        <div class="dot active" onclick="showPage(0)"></div>
+        <div class="dot" onclick="showPage(1)"></div>
+    </div>
+
+    <!-- Music button -->
+    <button class="music-btn" id="musicBtn" title="Play/Pause music" onclick="toggleMusic()">🎵</button>
+
+    <!-- ═══════════════════════════════ PAGE 1: ENVELOPE ═══════════════════════════════ -->
+    <section class="page" id="page-envelope">
+        <div class="envelope-wrap">
+            <p class="pre-text">For someone special...</p>
+
+            <!-- Envelope SVG -->
+            <svg class="envelope-svg" id="envelopeSvg" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" onclick="openEnvelope()">
+      <!-- Envelope body -->
+      <rect x="10" y="70" width="260" height="120" rx="12" fill="#f5f2eb" stroke="#b8d8b4" stroke-width="2.5"/>
+      <!-- Envelope side folds -->
+      <polygon points="10,70 140,155 270,70" fill="none" stroke="#c8e0c5" stroke-width="1.5"/>
+      <line x1="10" y1="190" x2="120" y2="115" stroke="#c8e0c5" stroke-width="1.5"/>
+      <line x1="270" y1="190" x2="160" y2="115" stroke="#c8e0c5" stroke-width="1.5"/>
+      <!-- Envelope flap -->
+      <polygon class="envelope-flap" points="10,70 140,145 270,70 270,65 140,15 10,65" fill="#d6edd3" stroke="#b8d8b4" stroke-width="2.5"/>
+      <!-- Wax seal -->
+      <circle cx="140" cy="130" r="22" fill="#8aab85" opacity="0.9"/>
+      <circle cx="140" cy="130" r="16" fill="#6e9e6a"/>
+      <text x="140" y="136" text-anchor="middle" font-size="16" fill="white">🦒</text>
+      <!-- Little hearts -->
+      <text x="55" y="100" font-size="14" opacity="0.5">💚</text>
+      <text x="205" y="105" font-size="12" opacity="0.4">✨</text>
+      <text x="30" y="160" font-size="10" opacity="0.35">🌿</text>
+      <text x="240" y="165" font-size="10" opacity="0.35">🍃</text>
+    </svg>
+
+            <button class="btn-open" onclick="openEnvelope()">Open the letter 💌</button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ PAGE 2: LETTER ═══════════════════════════════ -->
+    <section class="page hidden" id="page-letter">
+        <div class="letter-inner">
+
+            <!-- Giraffe + bubble -->
+            <div class="giraffe-section">
+                <!-- Giraffe SVG -->
+                <svg class="giraffe-svg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body -->
+        <ellipse cx="65" cy="155" rx="32" ry="42" fill="#f5d580"/>
+        <!-- Spots on body -->
+        <ellipse cx="58" cy="145" rx="9" ry="7" fill="#c9883a" opacity="0.6"/>
+        <ellipse cx="75" cy="162" rx="7" ry="8" fill="#c9883a" opacity="0.6"/>
+        <ellipse cx="52" cy="168" rx="6" ry="5" fill="#c9883a" opacity="0.5"/>
+        <ellipse cx="78" cy="145" rx="5" ry="6" fill="#c9883a" opacity="0.5"/>
+
+        <!-- Neck -->
+        <path d="M 60 118 Q 58 100 62 75 Q 64 60 66 45" stroke="#f5d580" stroke-width="22" fill="none" stroke-linecap="round"/>
+        <!-- Neck spots -->
+        <ellipse cx="60" cy="105" rx="6" ry="5" fill="#c9883a" opacity="0.55" transform="rotate(-5 60 105)"/>
+        <ellipse cx="64" cy="85" rx="5" ry="4" fill="#c9883a" opacity="0.5" transform="rotate(8 64 85)"/>
+        <ellipse cx="62" cy="68" rx="4" ry="3.5" fill="#c9883a" opacity="0.5"/>
+
+        <!-- Head -->
+        <ellipse cx="67" cy="38" rx="18" ry="14" fill="#f5d580"/>
+        <!-- Snout -->
+        <ellipse cx="67" cy="46" rx="10" ry="7" fill="#f0c868"/>
+        <!-- Nostrils -->
+        <circle cx="63" cy="48" r="2" fill="#c9883a" opacity="0.6"/>
+        <circle cx="71" cy="48" r="2" fill="#c9883a" opacity="0.6"/>
+        <!-- Eyes -->
+        <circle cx="60" cy="34" r="4" fill="white"/>
+        <circle cx="74" cy="34" r="4" fill="white"/>
+        <circle cx="61" cy="34" r="2.5" fill="#3a4a38"/>
+        <circle cx="75" cy="34" r="2.5" fill="#3a4a38"/>
+        <circle cx="62" cy="33" r="1" fill="white"/>
+        <circle cx="76" cy="33" r="1" fill="white"/>
+        <!-- Eyelashes -->
+        <line x1="58" y1="30" x2="56" y2="27" stroke="#3a4a38" stroke-width="1.2"/>
+        <line x1="60" y1="29" x2="59" y2="26" stroke="#3a4a38" stroke-width="1.2"/>
+        <!-- Smile -->
+        <path d="M 61 50 Q 67 55 73 50" stroke="#c9883a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- Ossicones (horns) -->
+        <line x1="60" y1="22" x2="57" y2="10" stroke="#c9883a" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="57" cy="9" r="3.5" fill="#c9883a"/>
+        <line x1="72" y1="22" x2="75" y2="11" stroke="#c9883a" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="75" cy="10" r="3.5" fill="#c9883a"/>
+        <!-- Ears -->
+        <ellipse cx="50" cy="30" rx="6" ry="9" fill="#f5d580" transform="rotate(-20 50 30)"/>
+        <ellipse cx="50" cy="30" rx="3.5" ry="6" fill="#f0c868" transform="rotate(-20 50 30)"/>
+        <ellipse cx="84" cy="30" rx="6" ry="9" fill="#f5d580" transform="rotate(20 84 30)"/>
+        <ellipse cx="84" cy="30" rx="3.5" ry="6" fill="#f0c868" transform="rotate(20 84 30)"/>
+
+        <!-- Legs -->
+        <rect x="44" y="188" width="12" height="30" rx="5" fill="#f5d580"/>
+        <rect x="44" y="210" width="12" height="8" rx="3" fill="#c9883a"/>
+        <rect x="64" y="188" width="12" height="30" rx="5" fill="#f5d580"/>
+        <rect x="64" y="210" width="12" height="8" rx="3" fill="#c9883a"/>
+        <rect x="55" y="192" width="11" height="28" rx="5" fill="#f0c868"/>
+        <rect x="72" y="192" width="11" height="28" rx="5" fill="#f0c868"/>
+
+        <!-- Tail -->
+        <path d="M 95 155 Q 108 165 105 180 Q 102 188 108 192" stroke="#f5d580" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="110" cy="195" rx="6" ry="4" fill="#c9883a" transform="rotate(-20 110 195)"/>
+
+        <!-- Blush -->
+        <ellipse cx="54" cy="42" rx="5" ry="3" fill="#f4a66a" opacity="0.35"/>
+        <ellipse cx="80" cy="42" rx="5" ry="3" fill="#f4a66a" opacity="0.35"/>
+      </svg>
+
+                <div class="giraffe-bubble">
+                    Hii!! Selamat Ulang Tahun! 🎉🦒
+                </div>
+            </div>
+
+            <!-- Letter paper -->
+            <div class="paper-card">
+                <span class="leaf-deco" style="top:20px;right:30px;transform:rotate(25deg)">🍃</span>
+                <span class="leaf-deco" style="bottom:30px;left:20px;transform:rotate(-15deg)">🌿</span>
+
+                <div class="letter-header">
+                    <div class="letter-title">Selamat Ulang Tahun<br>Happy Birthday<br>Otanjoubi Omedetou<br>🦒🦒🦒Amaaaaaaaaaaa Jirepppp🦒🦒🦒</div>
+                    <div class="letter-divider">
+                        <span>🌿</span><span>♡ made with love ♡</span><span>🌿</span>
+                    </div>
+                </div>
+
+                <div class="letter-body">
+                    <p>Today is a special day for an extraordinary person. 🌟</p>
+                    <p>May every step you take be filled with happiness, may your days always be surrounded by beautiful moments, and may all your dreams come true, one by one. 🌿✨,
+                        <br> I hope this new chapter of your life brings you more laughter, more love, and countless reasons to smile. May you always find strength in difficult times, and never lose the warmth and kindness that make you so special. 💚
+                        <br> Thank you for being such an amazing, strong, and inspiring person. Having you in this world makes everything feel a little brighter. ✨</p>
+                    <p>May you continue to grow, shine, and become an even better version of yourself with each passing day. And no matter what happens, I hope happiness and luck will always find their way back to you. 🍀🌿
+                        <p class="highlight">Stay happy, stay cute, wishing you a long life, good health, and ease in every step of your journey ~ keep growing like a tall giraffe 🦒💚</p>
+                </div>
+            </div>
+
+            <!-- Polaroid Section -->
+            <div class="polaroid-section">
+                <div class="section-title">100% you</div>
+                <div class="section-sub">A piece of joy 🍀</div>
+
+                <div class="polaroid-grid">
+                    <div class="polaroid">
+                        <img src="gbr1.jpg" class="polaroid-img">
+                        <div class="polaroid-caption">cat lover 🐱</div>
+                    </div>
+                    <div class="polaroid">
+                        <img src="gbr2.jpeg" class="polaroid-img">
+                        <div class="polaroid-caption">girrafe girl 🦒</div>
+                    </div>
+                    <div class="polaroid">
+                        <img src="gbr5.jpeg" class="polaroid-img">
+                        <div class="polaroid-caption">ughtea bule arab ✨</div>
+                    </div>
+                    <div class="polaroid">
+                        <img src="gbr4.jpeg" class="polaroid-img">
+                        <div class="polaroid-caption">nyi roro kidul 💚</div>
+                    </div>
+                    <div class="polaroid">
+                        <img src="gbr3.jpeg" class="polaroid-img">
+                        <div class="polaroid-caption">us with the future 🌸</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ending -->
+            <div class="ending-section">
+                <span class="ending-giraffe">🦒</span>
+                <div class="ending-title">Once again, happy birthday dd amaaaaa qq 💚</div>
+                <div class="ending-sub">May this year bring you everything your heart desires 🌿✨</div>
+                <button class="btn-restart" onclick="restart()">↩ Repeat</button>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Hidden audio -->
+    <audio id="bgMusic" loop>
+  <!-- Using a gentle royalty-free tune via URL -->
+  <source src="wave to earth - seasons.mp3" type="audio/mpeg">
+</audio>
+
+    <script>
+        // ─── Floating elements ───
+        const floatSymbols = ['🍃', '🌿', '💚', '✨', '🌸', '🍀', '💫', '🦋'];
+        const floatiesEl = document.getElementById('floaties');
+
+        function createFloaty() {
+            const el = document.createElement('div');
+            el.classList.add('floaty');
+            el.textContent = floatSymbols[Math.floor(Math.random() * floatSymbols.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+            el.style.animationDuration = (Math.random() * 12 + 10) + 's';
+            el.style.animationDelay = (Math.random() * 5) + 's';
+            floatiesEl.appendChild(el);
+            setTimeout(() => el.remove(), 22000);
+        }
+
+        // Spawn floaties
+        for (let i = 0; i < 12; i++) setTimeout(createFloaty, i * 800);
+        setInterval(createFloaty, 2000);
+
+        // ─── Page transitions ───
+        const pages = [
+            document.getElementById('page-envelope'),
+            document.getElementById('page-letter'),
+        ];
+        const dots = document.querySelectorAll('.dot');
+        let currentPage = 0;
+
+        function showPage(idx) {
+            pages[currentPage].classList.add('hidden');
+            dots[currentPage].classList.remove('active');
+            currentPage = idx;
+            pages[currentPage].classList.remove('hidden');
+            dots[currentPage].classList.add('active');
+
+            if (idx === 1) {
+                pages[idx].scrollTop = 0;
+                launchConfetti();
+            }
+        }
+
+        // ─── Envelope open ───
+        function openEnvelope() {
+            const svg = document.getElementById('envelopeSvg');
+            svg.style.animation = 'none';
+            svg.style.transform = 'scale(1.05)';
+            svg.querySelector('.envelope-flap').style.transformOrigin = 'top center';
+            svg.querySelector('.envelope-flap').style.animation = 'openFlap 0.6s ease forwards';
+            svg.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+            setTimeout(() => {
+                svg.style.opacity = '0';
+                svg.style.transform = 'scale(0.8) translateY(20px)';
+            }, 400);
+
+            setTimeout(() => showPage(1), 900);
+        }
+
+        // ─── Restart ───
+        function restart() {
+            const svg = document.getElementById('envelopeSvg');
+            svg.style.opacity = '1';
+            svg.style.transform = '';
+            svg.style.animation = '';
+            const flap = svg.querySelector('.envelope-flap');
+            flap.style.animation = 'none';
+            flap.style.transform = '';
+            showPage(0);
+        }
+
+        // ─── Confetti ───
+        const confettiColors = ['#8aab85', '#b8d8b4', '#f5d580', '#c9883a', '#d6edd3', '#9db89a'];
+
+        function launchConfetti() {
+            for (let i = 0; i < 55; i++) {
+                setTimeout(() => {
+                    const c = document.createElement('div');
+                    c.classList.add('confetti-piece');
+                    c.style.left = Math.random() * 100 + 'vw';
+                    c.style.top = '-20px';
+                    c.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                    c.style.width = (Math.random() * 8 + 5) + 'px';
+                    c.style.height = (Math.random() * 8 + 5) + 'px';
+                    c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    c.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    c.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(c);
+                    setTimeout(() => c.remove(), 4000);
+                }, i * 30);
+            }
+        }
+
+        // ─── Music ───
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let playing = false;
+
+        function toggleMusic() {
+            if (playing) {
+                music.pause();
+                musicBtn.textContent = '🎵';
+            } else {
+                music.play().catch(() => {});
+                musicBtn.textContent = '🔇';
+            }
+            playing = !playing;
+        }
+
+        // Auto-try to play on first interaction
+        document.body.addEventListener('click', () => {
+            if (!playing) {
+                music.volume = 0.25;
+                music.play().then(() => {
+                    playing = true;
+                    musicBtn.textContent = '🔇';
+                }).catch(() => {});
+            }
+        }, {
+            once: true
+        });
+    </script>
+</body>
+
+</html>
